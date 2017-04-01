@@ -1,0 +1,45 @@
+<div  ng-controller="postJobViewCtrl" >
+    <div class="panel panel-primary">
+		<div class="panel-heading"><div class="col-sm-offset-5 "><label>View Posted Jobs</label></div></div>
+			<div class="panel-body">
+				<div class="row">
+                    <div class="col-lg-10">
+					
+					<form class="form-horizontal">
+					
+		<table class="table table-striped table-bordered table-hover" >  
+            <thead>
+                <tr >
+                    
+                    <th><label>JobDescription</label></th>
+					<th><label>Jobprofile</label></th>
+					<th><label>UG</label></th>
+					<th><label>PG</label></th>
+					<th><label>Industry</label></th>
+					<th><label>Functionality</label></th>
+                    <th><label>Notice</label></th>
+                    <th><label>Experience</label></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  ng-repeat="jobdata in postedJobs">
+                    <td><span>{{jobdata.jobDescription}}</span></td>
+					<td><span>{{jobdata.profile}}</span></td>
+					<td><span>{{jobdata.ug}}</span></td>
+					<td><span>{{jobdata.pg}}</span></td>
+					<td><span>{{jobdata.industry}}</span></td>
+					<td><span>{{jobdata.functionality}}</span></td>
+					<td><span>{{jobdata.notice}}</span></td>
+					<td><span>{{jobdata.experience}}</span></td>
+                </tr>
+               
+            </tbody>
+        </table>
+							
+					</form>
+				</div>
+			</div>
+		</div>                  
+    </div>               
+</div>              
+            

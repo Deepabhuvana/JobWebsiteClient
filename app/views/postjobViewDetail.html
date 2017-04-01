@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<style>
+    .ngdialog.ngdialog-theme-default .ngdialog-content {
+        width: 60%;		
+    }
+	.panel-body {
+  padding:23px; 
+}
+
+.ngdialog.ngdialog-theme-default {
+    padding-bottom: 160px;
+    padding-top: 60px;
+}
+	<!--fixed, absolute, inherit, initial, -->
+
+</style>
+<div>
+    <form name="removeform" role="form" ng-submit="yes()">
+        <center>
+            
+			 <div class="panel panel-primary">
+		<div class="panel-heading"><div class=" "><label>Job</label></div></div>
+			<div class="panel-body">
+				<div class="row">
+                    <div class="">
+					
+					<form class="form-horizontal">
+					
+						
+					
+							<div class="">										
+											<p class="text-left "><label>Job Description:</label></p>
+											<p class="text-left col-sm-offset-1">{{selJob.jobDescription}}</p>
+											<p class="text-left"><label>Job Title: </label>{{selJob.profile}}</p>
+											<p class="text-left"><label>Educational Qualifications:</label>{{selJob.ug}},{{selJob.pg}}</p>
+											<p class="text-left"><label>Industry:</label>{{selJob.industry}}</p>
+											<p class="text-left"><label>Functionality:</label>{{selJob.functionality}}</p>
+											<p class="text-left"><label>Notice Period:</label>{{selJob.notice}}</p>
+											<p class="text-left"><label>Experience:</label>{{selJob.experience}}</p>
+											<p class="text-left "><label>Company Description:</label></p>
+											<p class="text-left col-sm-offset-1">{{selJob.company}}</p>
+											
+							</div>
+							
+							 <input class="btn btn-primary submit_buttons" type="submit"   value="Apply"> 
+							 <input class="btn btn-primary submit_buttons" type="button"  ng-click="closeThisDialog(0)" value="Back">
+					
+                            
+					</form>
+				</div>
+			</div>
+		</div>                  
+    </div>               
+                 
+        </center>       
+    </form>
+</div>
+

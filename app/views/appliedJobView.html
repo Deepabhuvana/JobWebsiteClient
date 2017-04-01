@@ -1,0 +1,39 @@
+<div  ng-controller="appliedJobViewCtrl" >
+    <div class="panel panel-primary">
+		<div class="panel-heading"><div class="col-sm-offset-5 "><label>View Applied Jobs</label></div></div>
+			<div class="panel-body">
+				<div class="row">
+                    <div class="col-lg-10">
+					<form class="form-horizontal">
+		<table class="table table-striped table-bordered table-hover"  >
+            <thead>
+			
+                <tr>
+					<th><label>S.No</label></th>
+					<th><label>JobDescription</label></th>
+					<th><label>Jobprofile</label></th>
+					<th><label>UG</label></th>
+					<th><label>PG</label></th>
+                    <th><label>Company</label></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  ng-repeat="jobdata in allApplicantDetails">
+					<td><span>{{$index+1}}</span></td>
+					<td><span>{{jobdata.jobID.jobDescription}}</span></td>
+					<td><span>{{jobdata.jobID.profile}}</span></td>
+					<td><span>{{jobdata.jobID.ug}}</span></td>
+					<td><span>{{jobdata.jobID.pg}}</span></td>
+					<td><span>{{jobdata.jobID.company}}</span></td>
+                </tr>
+               
+            </tbody>
+        </table>
+							
+					</form>
+				</div>
+			</div>
+		</div>                  
+    </div>               
+</div>              
+            

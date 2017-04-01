@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jobseeker Admin Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="custom/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="custom/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="custom/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="/bower_components/ng-dialog/css/ngDialog.min.css">
+    <link rel="stylesheet" href="/bower_components/ng-dialog/css/ngDialog-theme-default.min.css">
+
+    
+
+</head>
+<style>
+
+.container {height: 80%;  width: 100%; min-height:570px;}
+.table {margin-left: 5%; }
+ 
+</style>
+
+<body ng-app="htmlApp">
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">JobSeeker</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu message-dropdown">
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                       <!-- <img class="media-object" src="http://placehold.it/50x50" alt="">-->
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                   <!--     <img class="media-object" src="http://placehold.it/50x50" alt="">-->
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <div class="media">
+                                    <span class="pull-left">
+                                  <!--      <img class="media-object" src="http://placehold.it/50x50" alt="">-->
+                                    </span>
+                                    <div class="media-body">
+                                        <h5 class="media-heading"><strong>John Smith</strong>
+                                        </h5>
+                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="message-footer">
+                            <a href="#">Read All New Messages</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Guru <b class="caret"></b></a>
+				</li>
+				<li>
+					<a href="/index.html"><span ><i class="fa fa-power-off"></i>  Logout</span></a>
+				</li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav" >				
+                    <li class='Active'>
+                        <a href="#afj"><i class="fa fa-fw fa-dashboard"></i> Apply For Jobs</a>
+                    </li>                  
+                    <li>
+                        <a href="#aj"><i class="fa fa-fw fa-table"></i>Applied Jobs</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+			<div class="container">
+				<div ng-view=""></div>
+			</div>
+	
+           </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="custom/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="custom/bootstrap.js"></script>
+
+	
+    
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+	<script src="bower_components/ng-dialog/js/ngDialog.js"></script>
+	
+<script>
+'use strict';
+angular
+  .module('htmlApp', [ 'ngAnimate', 'ngAria', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch', 'ngDialog'])
+  .config(function ($routeProvider, $httpProvider) {
+  
+	delete $httpProvider.defaults.headers.common['X-Requested-With'];
+	$httpProvider.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+	
+	
+    $routeProvider
+      .when('/afj', {
+        templateUrl: '/views/applyJob.html',
+        controller: 'applyJobCtrl'
+		
+      })
+	  .when('/aj', {
+        templateUrl: '/views/appliedJobView.html',
+        controller: 'appliedJobViewCtrl'
+		
+      })	 
+       .when('/', {
+        templateUrl: '/views/applyJob.html',
+        controller: 'applyJobCtrl'
+		
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+	  
+  }).controller('applyJobCtrl',['$scope','$http','applyJobCtrlService','ngDialog', '$controller', function ($scope,$http, applyJobCtrlService, ngDialog, $controller) {
+    
+	
+		$scope.selectedJob = function(data){
+			$scope.selJob  = data;		
+			ngDialog.openConfirm({
+                template: '/views/postjobViewDetail.html',
+                scope: $scope
+            });
+		};
+		
+		$scope.yes = function(){
+			$scope.selJob.isApplied = 1;
+			applyJobCtrlService.applyJob($scope.selJob,function (response) {
+		
+				$scope.value = response; 
+				$scope.DisplayMessage = "Job Posted Successfully";
+				if(response.status === 200){
+					$scope.statusApply = response;
+					ngDialog.close();
+				}
+			});
+		};
+					
+		var initial = function(){
+	
+			applyJobCtrlService.getAllPostedJobs(function (response) { $scope.allPostedJobs = response.data;});
+			applyJobCtrlService.getApplicantsDetails(function (response) {$scope.allApplicantDetails = response.data;});
+
+		};
+	
+		$scope.postJob = function(data){
+	
+			$scope.saveval= data;
+			$scope.saveval.applicationID = Math.floor((Math.random()*6)+1);	
+			postJobCtrlService.object(data,function (response) {
+				$scope.value = response; 
+				$scope.DisplayMessage = "Job Posted Successfully";
+				if(response.status === 200){
+					$scope.recruit = {};
+					postJobCtrlService.setPostedJobInfo(data);
+					ngDialog.openConfirm({template: '/views/SuccessDialog.html', scope: $scope});					
+				}
+			});
+			
+		};
+		
+		initial();
+
+  }]).service('applyJobCtrlService', ['$http', function ($http) {
+		
+		var url = 'http://localhost:8080/JobWebsite/';
+		this.allPostedJobs = [];
+		this.getAllPostedJobs = getPostedJobs;
+		this.applyJob = setApplyJob;
+		this.getApplicantsDetails = getAllApplicants;		
+		
+		function getPostedJobs(callback) {
+            $http
+        .get("http://localhost:8080/JobWebsite/getAllPostedJobs",  {handleError:true},
+		{headers: {'Content-Type': 'application/json; charset=utf-8', 
+				   'Access-Control-Allow-Origin': '*',
+				   "Access-Control-Allow-Headers": "Content-Type,X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name",
+                   "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE, OPTIONS",
+                   "Access-Control-Allow-Credentials": true
+		}},
+		{transformResponse: [function (response) {return data; }]})
+        .then(function(data) {callback(data);}, 
+			  function(err) {callback(err);});
+        };
+		
+		function getAllApplicants(callback) {
+            $http
+        .get("http://localhost:8080/JobWebsite/getAllApplicants",  {handleError:true},
+		{headers: {'Content-Type': 'application/json; charset=utf-8', 
+				   'Access-Control-Allow-Origin': '*',
+				   "Access-Control-Allow-Headers": "Content-Type,X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name",
+                   "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE, OPTIONS",
+                   "Access-Control-Allow-Credentials": true
+		}},
+		{transformResponse: [function (response) {return data; }]})
+        .then(function(data) {callback(data);}, 
+			  function(err) {callback(err);});
+        };
+						
+		function setApplyJob(data, callback) {		
+			$http.post(url+'applyjob', data,
+					  {headers: { 'Content-Type': 'application/json; charset=utf-8',  'Access-Control-Allow-Origin': '*',
+								  'Access-Control-Allow-Headers': 'Content-Type,X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name',
+								  'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS','Access-Control-Allow-Credentials': 'true'}
+					  },
+					  {transformResponse: [function (response) {return data; }]}
+			          ).then(function(data,status,config,headers) {
+					  callback(data);});	
+		};	
+
+		
+ }]).controller('appliedJobViewCtrl',['$scope','$http','applyJobCtrlService', function ($scope,$http,applyJobCtrlService) {
+    
+	var initial = function(){
+		applyJobCtrlService.getApplicantsDetails(function (response) {
+		$scope.allApplicantDetails = response.data;
+		});
+	};
+	
+	initial();
+
+		
+  }]);
+	
+</script>
+	
+</body>
+
+</html>

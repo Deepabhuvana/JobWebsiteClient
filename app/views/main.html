@@ -1,0 +1,21 @@
+<div class="jumbotron">
+  <h3>Job Seeker's Website</h3>
+ 
+  <br>
+  <div class="input-group">
+  <span class="input-group-addon" id="basic-addon1">Username : </span>
+  <input type="text" ng-model="username" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+</div>
+<div class="input-group">
+  <span class="input-group-addon " id="basic-addon2">Password : </span>
+  <input type="password" ng-model="password" class="form-control" placeholder="Password" aria-describedby="basic-addon2">
+</div>
+<br>
+<div class="btn-group btn-group-sm" role="group" >
+<button type="button" class="btn-sm btn-info" ng-click="validate()">Login</button></div>
+<div ng-show="status">
+<div class="alert-info">{{statusValue}}</div>
+</div>
+</div>
+
+

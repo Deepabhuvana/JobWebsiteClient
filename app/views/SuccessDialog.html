@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<style>
+    .ngdialog.ngdialog-theme-default .ngdialog-content {
+        width: 30%;
+    }
+    #data_error {
+        margin-top: 10px;
+        margin-bottom: -15px;
+        text-align: center;
+    }
+</style>
+<div>
+    <form name="removeform" role="form" ng-submit="yes()">
+        <center>
+            <p><label class="delete_text" ng-bind="DisplayMessage"></label></p>
+            
+            <input class="btn btn-primary submit_buttons" type="button"  ng-click="closeThisDialog(0)" value="OK">      
+        </center>       
+    </form>
+</div>
+

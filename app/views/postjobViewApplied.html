@@ -1,0 +1,41 @@
+<div  ng-controller="postJobAppliedCtrl" >
+    <div class="panel panel-primary">
+		<div class="panel-heading"><div class="col-sm-offset-5 "><label>Applied Jobs</label></div></div>
+			<div class="panel-body">
+				<div class="row">
+                    <div class="col-lg-10">
+					
+					<form class="form-horizontal"> 
+					
+		<table class="table table-striped table-bordered table-hover"  >
+            <thead>
+                <tr>
+                    
+                    <th><label>Applicant Name</label></th>
+					<th><label>Applicant Experience</label></th>
+					<th><label>Key Skills</label></th>
+					<th><label>Notice Period</label></th>
+					<th><label>Applicant Email</label></th>
+					<th><label>Applied For</label></th>					
+                </tr>
+            </thead>
+            <tbody>
+                <tr  ng-repeat="jobdata in appliedJobs">
+                    <td><span>{{jobdata.applicantName}}</span></td>
+					<td><span>{{jobdata.applicantExp}}</span></td>
+					<td><span>{{jobdata.applicantSkills}}</span></td>
+					<td><span>{{jobdata.applicantNotice}}</span></td>
+					<td><span>{{jobdata.applicantEmail}}</span></td>
+					<td><span>{{jobdata.jobID.profile}}</span></td>					
+                </tr>
+               
+            </tbody>
+        </table>
+							
+					</form>
+				</div>
+			</div>
+		</div>                  
+    </div>               
+</div>              
+            

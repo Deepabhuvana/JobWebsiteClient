@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Recruiter Admin Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="custom/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="custom/sb-admin.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="custom/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
+	<link rel="stylesheet" href="/bower_components/ng-dialog/css/ngDialog.min.css">
+    <link rel="stylesheet" href="/bower_components/ng-dialog/css/ngDialog-theme-default.min.css">
+
+    
+
+</head>
+<style>
+
+.container. {height: 80%;  width: 100%; min-height:570px;}
+.table {margin-left: 5%; }
+.panel-primary{width:95%;}
+</style>
+<body ng-app="htmlApp">
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Recruiter</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+                   
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                   
+                </li>
+								
+				<li>
+					<a href="/index.html"><span ><i class="fa fa-power-off"></i>  Logout</span></a>
+				</li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav" >				
+                    <li class='Active'>
+                        <a href="#pj"><i class="fa fa-fw fa-dashboard"></i> Post For Job</a>
+                    </li>
+                    <li>
+                        <a href="#pjv"><i class="fa fa-fw fa-bar-chart-o"></i> Posted Job</a>
+                    </li>
+                    <li>
+                        <a href="#pva"><i class="fa fa-fw fa-table"></i>Applied Jobs</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+	
+			<div class="container">
+				<div ng-view=""></div>
+			</div>
+	
+           </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="custom/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="custom/bootstrap.js"></script>
+
+	
+    
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+	<script src="bower_components/ng-dialog/js/ngDialog.js"></script>
+	
+<script>
+
+angular
+  .module('htmlApp', [ 'ngAnimate', 'ngAria', 'ngCookies', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch', 'ngDialog'])
+  .config(function ($routeProvider, $httpProvider) {
+  
+	delete $httpProvider.defaults.headers.common['X-Requested-With'];
+	$httpProvider.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+	
+	
+    $routeProvider
+      .when('/pj', {
+        templateUrl: '/views/postjob.html',
+        controller: 'postJobCtrl'
+		
+      })
+	  .when('/pjv', {
+        templateUrl: '/views/postjobView.html',
+        controller: 'postJobViewCtrl'
+		
+      })
+	  .when('/pva', {
+        templateUrl: '/views/postjobViewApplied.html',
+        controller: 'postJobAppliedCtrl'
+		
+      })
+	  .when('/', {
+        templateUrl: '/views/postjob.html',
+        controller: 'postJobCtrl'
+		
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
+	  
+  }).controller('postJobCtrl',['$scope','$http','postJobCtrlService','ngDialog', '$controller', function ($scope,$http, postJobCtrlService, ngDialog, $controller) {
+    
+		$scope.postJob = function(data){
+	
+			$scope.saveval= data;
+			$scope.saveval.applicationID = Math.floor((Math.random()*6)+1);	
+			$scope.saveval.isApplied = 0;
+			postJobCtrlService.postjob(data,function (response) {
+				$scope.value = response;
+				$scope.DisplayMessage = "Job Posted Successfully";
+				if(response.status === 200){
+					$scope.recruit = {};
+					postJobCtrlService.setPostedJobInfo(data);
+					ngDialog.openConfirm({template: '/views/SuccessDialog.html',scope: $scope});
+				}
+			});
+			
+		};
+
+  }]).service('postJobCtrlService', ['$http', function ($http) {
+		this.postjob = postJobNow;
+		this.getApplicantsDetails = getAllApplicants;
+		this.postedJobInfo = {};
+		this.appliedJobInfo = {};
+		var url = 'http://localhost:8080/JobWebsite/postjob';
+
+		function postJobNow(dt, callback) {		
+			$http.post(url, dt,
+					  {headers: { 'Content-Type': 'application/json; charset=utf-8',  'Access-Control-Allow-Origin': '*',
+								  'Access-Control-Allow-Headers': 'Content-Type,X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name',
+								  'Access-Control-Allow-Methods': 'POST, GET, PUT, DELETE, OPTIONS','Access-Control-Allow-Credentials': 'true'}
+					  },
+					  {transformResponse: [function (response) {return data; }]}
+			          ).then(function(data,status,config,headers) {callback(data);});	
+		};	
+		
+		  this.setPostedJobInfo = function (postedJob) {
+            this.postedJobInfo = postedJob;
+        };
+		
+		function getAllApplicants(callback) {
+            $http
+        .get("http://localhost:8080/JobWebsite/getAllApplicants",  {handleError:true},
+		{headers: {'Content-Type': 'application/json; charset=utf-8', 
+				   'Access-Control-Allow-Origin': '*',
+				   "Access-Control-Allow-Headers": "Content-Type,X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name",
+                   "Access-Control-Allow-Methods": "POST, GET, PUT, DELETE, OPTIONS",
+                   "Access-Control-Allow-Credentials": true
+		}},
+		{transformResponse: [function (response) {return data; }]})
+        .then(function(data) {callback(data);}, 
+			  function(err) {callback(err);});
+        };
+
+        this.getPostedJobInfo = function () {
+            return this.postedJobInfo;
+        };
+		
+		 this.setAppliedJobInfo = function (appliedJob) {
+            this.appliedJobInfo = appliedJob;
+        };
+
+        this.getAppliedJobInfo = function () {
+            return this.appliedJobInfo;
+        };
+
+		
+ }]).controller('postJobViewCtrl',['$scope','$http','postJobCtrlService', function ($scope,$http,postJobCtrlService) {
+    $scope.postedJobs =[];
+	var object = {
+	 "applicationID":'5',
+	  "jobDescription":"xxx",
+	  "profile":"Full Stack Developer",
+	  "ug" : "BE/Btech",
+	  "pg" : "ME/Mtech",
+	  "industry":"healthcare",
+	  "functionality":"service",
+	  "notice":"60 days",
+	  "experience":"2 years",
+	  "company":"Flatiron technologies",
+	  "isApplied":0
+	}
+		$scope.postedJobs.push(object);
+		
+		$scope.postedJobs.push(postJobCtrlService.getPostedJobInfo());
+       
+  }]).controller('postJobAppliedCtrl',['$scope','$http','postJobCtrlService', function ($scope,$http,postJobCtrlService) {
+    $scope.appliedJobs =[];
+	
+		
+		var initial = function(){
+		postJobCtrlService.getApplicantsDetails(function (response) {
+		$scope.appliedJobs = response.data;
+		});
+	};
+	
+	initial();
+		
+		
+  }]);
+	
+</script>
+
+</body>
+
+</html>

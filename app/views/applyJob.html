@@ -1,0 +1,50 @@
+<style>
+    .fa.fa-check.fa-close.fa-lg{
+	background-color:greenyellow;
+	}
+	<!--fixed, absolute, inherit, initial, -->
+
+</style>
+<div  ng-controller="applyJobCtrl" >
+    <div class="panel panel-primary">
+		<div class="panel-heading"><div class="col-sm-offset-5 "><label>View Posted Jobs</label></div></div>
+			<div class="panel-body">
+				<div class="row">
+                    <div class="col-lg-10">
+					
+					<form class="form-horizontal">
+		<table class="table table-striped table-bordered table-hover"  >
+            <thead>
+                <tr>
+                    
+                    <th><label>JobDescription</label></th>
+					<th><label>Jobprofile</label></th>
+					<th><label>UG</label></th>
+					<th><label>PG</label></th>
+                    <th><label>Experience</label></th>
+					<th><label>Apply Status</label></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr  ng-repeat="jobdata in allPostedJobs">
+                    <td><span ng-click="selectedJob(jobdata)"><u>{{jobdata.jobDescription}}</u></span></td>
+					<td><span>{{jobdata.profile}}</span></td>
+					<td><span>{{jobdata.ug}}</span></td>
+					<td><span>{{jobdata.pg}}</span></td>
+					<td><span>{{jobdata.experience}}</span></td>
+					
+					<td align="center">
+                        <span  ng-show="(jobdata.isApplied === 1)"><i  class=" btn btn-sm btn-success fa fa-check fa-lg"></i></span>
+                        <span  ng-show="(jobdata.isApplied === 0)"><i  class=" btn btn-sm btn-danger fa fa-close fa-lg"></i></span>
+                    </td>
+                </tr>               
+            </tbody>
+        </table>
+							
+					</form>
+				</div>
+			</div>
+		</div>                  
+    </div>               
+</div>              
+            
